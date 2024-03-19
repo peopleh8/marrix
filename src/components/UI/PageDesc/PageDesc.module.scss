@@ -1,0 +1,18 @@
+@import "../../../styles/helpers/functions.scss";
+
+.desc {
+  font-size: clamp(12px, 100vw, get-vw(26px));
+  line-height: clamp(14px, 100vw, get-vw(27px));
+  color: var(--text-color-light);
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  max-width: clamp(184px, 100vw, get-vw(400px));
+  margin: clamp(20px, 100vw, get-vw(50px)) auto 0;
+}
+
+@media (max-width: 768px) {
+  .desc {
+    font-weight: 400;
+  }
+}

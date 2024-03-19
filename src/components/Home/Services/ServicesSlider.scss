@@ -1,0 +1,30 @@
+@import "../../../styles/helpers/functions.scss";
+
+.services-slider {
+  width: clamp(330px, 100vw, get-vw(800px));
+  height: clamp(330px, 100vw, get-vw(400px));
+  overflow: visible !important;
+  .swiper-slide {
+    height: 100%;
+    overflow: hidden;
+    border-radius: 40px;
+    position: relative;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    &.swiper-slide-active {
+      .slider-front {
+        opacity: 0;
+        pointer-events: none;
+        transition-delay: 0s;
+      }
+      .slider-back {
+        opacity: 1;
+        pointer-events: auto;
+        transition-delay: .3s;
+      }
+    }
+  }
+}

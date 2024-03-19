@@ -1,0 +1,106 @@
+@import "../../../styles/helpers/functions.scss";
+
+.choose {
+  background: var(--bg-color-dark);
+  padding: clamp(90px, 100vw, get-vw(165px)) clamp(30px, 100vw, get-vw(120px)) clamp(40px, 100vw, get-vw(75px)) clamp(50px, 100vw, get-vw(120px));
+}
+
+.list {
+  margin-top: clamp(30px, 100vw, get-vw(102px));
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(30px, 100vw, get-vw(45px)) clamp(30px, 100vw, get-vw(237px));
+  padding: 0 clamp(1px, 100vw, get-vw(210px)) 0 clamp(1px, 100vw, get-vw(300px));
+}
+
+.item {
+  width: calc(50% - (clamp(30px, 100vw, get-vw(237px)) / 2));
+  position: relative;
+  z-index: 2;
+  @media (hover: hover) and (min-width: 1025px) {
+    &:hover {
+      .itemConter {
+        opacity: .3;
+        transform: translate(-80%, -30%);
+      }
+      .itemContent {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.itemConter {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: 800;
+  font-size: clamp(80px, 100vw, get-vw(170px));
+  line-height: 1;
+  letter-spacing: clamp(1px, 100vw, get-vw(1px));
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(359.8deg, rgba(#2400FF, .5) 0%, #00E0FF 97.9167%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  @media (hover: hover) {
+    opacity: 0;
+    transform: translate(-80%, -20%);
+    transition: all .35s ease;
+  }
+  @media (hover: none) {
+    opacity: .3;
+    transform: translate(-80%, -30%);
+  }
+}
+
+.itemContent {
+  @media (hover: hover) {
+    opacity: .7;
+    transition: opacity .25s ease;
+  }
+}
+
+.itemTitle {
+  color: var(--bg-color-light);
+  margin-bottom: clamp(20px, 100vw, get-vw(20px));
+  font-weight: 900;
+  line-height: clamp(30px, 100vw, get-vw(38px));
+  font-size: clamp(24px, 100vw, get-vw(30px));
+  text-transform: uppercase;
+}
+
+.itemDesc {
+  color: var(--bg-color-light);
+  font-size: clamp(16px, 100vw, get-vw(18px));
+  line-height: clamp(20px, 100vw, get-vw(22px));
+  letter-spacing: clamp(1px, 100vw, get-vw(1px));
+}
+
+@media (max-width: 1024px) {
+  .choose {
+    padding: clamp(90px, 100vw, get-vw(165px)) clamp(30px, 100vw, get-vw(50px)) clamp(40px, 100vw, get-vw(75px)) clamp(50px, 100vw, get-vw(50px));
+  }
+  .itemConter {
+    opacity: .3;
+    transform: translate(-80%, -30%);
+  }
+  .itemContent {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .choose {
+    & > *:nth-child(1) {
+      margin-left: -20px;
+    }
+  }
+  .list {
+    padding: 0;
+    gap: 45px;
+  }
+  .item {
+    width: 100%;
+  }
+}

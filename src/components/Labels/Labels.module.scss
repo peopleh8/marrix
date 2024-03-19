@@ -1,0 +1,85 @@
+@import "../../styles/helpers/functions.scss";
+
+.labels {
+  position: absolute;
+  z-index: 99999;
+  left: clamp(30px, 100vw, get-vw(120px));
+  bottom: clamp(30px, 100vw, get-vw(50px));
+  transition: opacity .25s ease, filter .35s ease;
+}
+
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.inverted {
+  filter: invert(100%);
+}
+
+.open {
+  filter: invert(0);
+}
+
+.rolled {
+  .front {
+    pointer-events: none;
+  }
+  .back {
+    pointer-events: auto;
+  }
+  .frontText {
+    transform: translateY(105%);
+    transition-delay: 0s;
+  }
+  .backText {
+    transform: translateY(0);
+    transition-delay: .30s;
+  }
+}
+
+.back {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  pointer-events: none;
+}
+
+.frontLabel {
+  overflow: hidden;
+  & + & {
+    margin-top: clamp(7px, 100vw, get-vw(10px));
+  }
+}
+
+.frontText {
+  text-transform: uppercase;
+  color: var(--text-color-light);
+  font-weight: 600;
+  transition: transform .35s ease .3s;
+}
+
+.backLabel {
+  overflow: hidden;
+  & + & {
+    margin-top: clamp(5px, 100vw, get-vw(6px));
+  }
+}
+
+.backText {
+  text-transform: uppercase;
+  color: var(--text-color-light);
+  font-weight: 900;
+  font-size: clamp(18px, 100vw, get-vw(22px));
+  line-height: clamp(24px, 100vw, get-vw(26.4px));
+  letter-spacing: clamp(1px, 100vw, get-vw(1px));
+  transition: transform .35s ease 0s;
+  transform: translateY(-105%);
+}
+
+@media (max-width: 768px) {
+  .labels {
+    display: none;
+  }
+}

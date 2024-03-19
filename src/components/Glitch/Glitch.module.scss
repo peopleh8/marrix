@@ -1,0 +1,32 @@
+.glitch {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  display: flex;
+}
+
+.item {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.dark {
+  .rectangle {
+    background: var(--bg-color-dark);
+  }  
+}
+
+.light {
+  .rectangle {
+    background: var(--bg-color-light);
+  }  
+}
+
+.rectangle {
+  opacity: 1;
+}

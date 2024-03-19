@@ -1,0 +1,45 @@
+@import "../../../styles//helpers/functions";
+
+.desc {
+  padding: clamp(80px, 100vw, get-vw(165px)) clamp(30px, 100vw, get-vw(120px)) clamp(42px, 100vw, get-vw(268px));
+}
+
+.topography {
+  position: relative;
+  z-index: 2;
+}
+
+.subtitle {
+  overflow: hidden;
+  z-index: -1;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transform: translateY(45%);
+  text-transform: uppercase;
+  font-weight: 1000;
+  font-size: clamp(80px, 100vw, get-vw(280px));
+  line-height: 1;
+  letter-spacing: clamp(1px, 100vw, get-vw(1px));
+  background: linear-gradient(90deg, rgba(0, 224, 255, 0.0255) -7.78%, rgba(2, 180, 225, 0.05) 26.61%, rgba(0, 133, 255, 0.05) 54.53%, rgba(0, 108, 207, 0.05) 76.98%, rgba(29, 1, 201, 0.05) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.inner {
+  margin-top: clamp(30px, 100vw, get-vw(48px));
+  padding: 0 clamp(94px, 100vw, get-vw(245px));
+  & > *:nth-child(1) {
+    margin-bottom: clamp(20px, 100vw, get-vw(20px));
+  }
+}
+
+
+@media (max-width: 768px) {
+  .inner {
+    padding: 0;
+  }
+  .subtitle {
+    transform: translateY(70%);
+  }
+}

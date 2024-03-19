@@ -1,0 +1,54 @@
+@import "../../../styles//helpers/functions";
+
+.title {
+  display: flex;
+  align-items: center;
+}
+
+.titleLight {
+  .line,
+  .rectangleInner {
+    background: var(--text-color-light);
+  } 
+  .text {
+    color: var(--text-color-light);
+  }
+}
+
+.titleDark {
+  .line,
+  .rectangleInner {
+    background: var(--text-color-dark);
+  } 
+  .text {
+    color: var(--text-color-dark);
+  }
+}
+
+.line {
+  height: clamp(1px, 100vw, get-vw(2px));
+  width: clamp(84px, 100vw, get-vw(206px));
+  margin-right: clamp(10px, 100vw, get-vw(40px));
+  transform-origin: right center;
+  position: relative;
+}
+
+.rectangle {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);  
+}
+
+.rectangleInner {
+  width: clamp(5px, 100vw, get-vw(8px));
+  height: clamp(5px, 100vw, get-vw(8px));
+}
+
+.text {
+  font-size: clamp(10px, 100vw, get-vw(18px));
+  line-height: 1;
+  text-transform: uppercase;  
+  font-weight: 800;
+  letter-spacing: clamp(1px, 100vw, get-vw(1px));
+}

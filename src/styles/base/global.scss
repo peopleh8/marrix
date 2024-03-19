@@ -1,0 +1,82 @@
+@import "../helpers/functions";
+
+html {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+}
+
+body {
+  width: 100%;
+  line-height: clamp(21px, 100vw, get-vw(32px));
+  font-weight: var(--default-weight);
+  color: var(--text-color-dark);
+  background: var(--bg-color-dark);
+  accent-color: var(--accent-color);
+  font-size: clamp(16px, 100vw, get-vw(22px));
+  overflow: hidden;
+  &.lock-scroll {
+    overflow: hidden;
+  }
+}
+
+.roll-btn {
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: clamp(18px, 100vw, get-vw(22px));
+  perspective: 300px;
+  span {
+    font-weight: 600;
+    font-size: clamp(14px, 100vw, get-vw(18px));
+    line-height: clamp(18px, 100vw, get-vw(22px));
+    text-transform: uppercase;
+    transition: transform .35s;
+  }
+  @media (hover: hover) {
+    &:hover {
+      span {
+        transform: translateY(-105%);
+      }
+    }
+  }
+}
+
+.icon {
+  display: block;
+  svg,
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.swiper-button-disabled {
+  opacity: .6;
+  pointer-events: none;
+}
+
+.simplebar-scrollable-y {
+  padding-right: 15px;
+}
+
+.simplebar-scrollbar {
+  &::before {
+    transition: opacity .25s !important;
+  }
+  &.simplebar-hover::before {
+    opacity: 1 !important;
+  }
+}
+
+.line {
+  display: block;
+  overflow: hidden;
+}
+
+.line-inner {
+  display: block;
+}

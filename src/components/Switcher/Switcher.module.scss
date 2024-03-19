@@ -1,0 +1,29 @@
+@import "../../styles//helpers/functions";
+
+.switcher {
+  position: absolute;
+  top: calc(100% + clamp(20px, 100vw, get-vw(25px)));
+  right: 0;
+}
+
+.text {
+  span {
+    color: var(--text-color-light);
+  }
+  & + & {
+    margin-top: clamp(15px, 100vw, get-vw(20px));
+  }
+}
+
+@media (max-width: 768px) {
+  .switcher {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s ease;
+  }
+
+  .open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}

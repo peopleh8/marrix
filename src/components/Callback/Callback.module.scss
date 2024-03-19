@@ -1,0 +1,305 @@
+@import "../../styles/helpers/functions.scss";
+
+.callback {
+  position: absolute;
+  z-index: 6000;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--bg-color-dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .8s ease;
+  overflow: hidden;
+  transform: translateY(100%);
+}
+
+.open {
+  transform: translateY(0);
+}
+
+.form {
+  max-width: get-vw(1190px);
+  width: 100%;
+}
+
+.fields {
+  border-top: clamp(1px, 100vw, get-vw(1px)) solid #302F2F;
+}
+
+.field {
+  display: flex;
+  border-bottom: clamp(1px, 100vw, get-vw(1px)) solid #302F2F;
+  position: relative;
+}
+
+.label {
+  color: var(--text-color-light);
+  font-weight: 700;
+  font-size: clamp(18px, 100vw, get-vw(24px));
+  line-height: clamp(22px, 100vw, get-vw(29px));
+  padding: clamp(20px, 100vw, get-vw(30px)) clamp(10px, 100vw, get-vw(10px)) clamp(20px, 100vw, get-vw(30px)) 0;
+  display: block;
+  width: clamp(150px, 100vw, get-vw(260px));
+}
+
+.inpWrapper {
+  flex: 1;
+  position: relative;
+}
+
+.inp {
+  padding: clamp(20px, 100vw, get-vw(30px)) 0;
+  color: var(--text-color-light);
+  &:focus + .highlight {
+    width: 100%;
+  }
+}
+
+.error {
+  font-size: 10px;
+  color: #ff0060;
+  position: absolute;
+  width: 100%;
+  right: 0;
+  top: 100%;
+  border-top: 1px solid #ff0060;
+  text-align: right;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: opacity .2s ease;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.errorVisible {
+  opacity: 1;
+}
+
+textarea.inp {
+  height: clamp(100px, 100vw, get-vw(160px));
+}
+
+.highlight {
+  position: absolute;
+  left: 0;
+  bottom: calc(clamp(1px, 100vw, get-vw(1px)) * -1);
+  width: 0;
+  height: clamp(1px, 100vw, get-vw(1px));
+  background: var(--bg-color-light);
+  transition: width .35s, background .35s;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: clamp(30px, 100vw, get-vw(60px));
+}
+
+.file {
+  cursor: pointer;
+  position: relative;
+  @media (hover: hover) {
+    &:hover {
+      .fileIconLine {
+        &::after {
+          opacity: 0;
+        }
+        &::before {
+          transform: translateX(0);
+        }
+        &:first-child {
+          &::before {
+            transition-delay: .15s;
+          }
+        }
+      }
+    }
+  }
+}
+
+.fileLabel {
+  display: flex;
+  align-items: center;
+}
+
+.fileInp {
+  position: absolute;
+  left: -99999em;
+}
+
+.fileIcon {
+  cursor: pointer;
+  width: clamp(22px, 100vw, get-vw(42px));
+  height: clamp(22px, 100vw, get-vw(42px));
+  margin-right: clamp(20px, 100vw, get-vw(32px));
+  position: relative;
+}
+
+.fileIconLine {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  height: clamp(2px, 100vw, get-vw(4px));
+  overflow: hidden;
+  &:first-child {
+    transform: translate(-50%, -50%);
+    &::before {
+      transform: translateX(100%);
+    }
+  }
+  &:last-child {
+    transform: translate(-50%, -50%) rotate(90deg);
+    &::before {
+      transform: translateX(-100%);
+    }
+  }
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border-radius: clamp(20px, 100vw, get-vw(20px));
+    background: var(--bg-color-light);
+  }
+  &::before {
+    transition: .3s ease;
+  }
+}
+
+.fileText {
+  height: clamp(22px, 100vw, get-vw(33px)) !important;
+  span {
+    letter-spacing: clamp(1px, 100vw, get-vw(1px));
+    font-size: clamp(18px, 100vw, get-vw(28px)) !important;
+    line-height: clamp(22px, 100vw, get-vw(33px)) !important;
+    color: var(--bg-color-light);
+  }
+}
+
+.fileName {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  text-align: right;
+  color: var(--text-color-light);
+  font-size: clamp(11px, 100vw, get-vw(12px));
+  pointer-events: none;
+  text-transform: uppercase;
+  font-weight: 900;
+  opacity: 0;
+  letter-spacing: clamp(1px, 100vw, get-vw(2px));
+  max-width: clamp(170px, 100vw, get-vw(200px));
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: opacity .3s ease;
+}
+
+.fileNameVisible {
+  opacity: .7;
+}
+
+.times {
+  cursor: pointer;
+  top: clamp(30px, 100vw, get-vw(40px));
+  right: clamp(30px, 100vw, get-vw(40px));
+  width: clamp(27px, 100vw, get-vw(40px));
+  height: clamp(27px, 100vw, get-vw(40px));
+  position: absolute;
+  @media (hover: hover) {
+    &:hover {
+      .timesLine {
+        &::before,
+        &::after {
+          transition: transform .35s ease;
+        }
+        &:first-child {
+          &::before {
+            transform: scaleX(0);
+          }
+          &::after {
+            transform: scaleX(1);
+            transition-delay: 95ms;
+          }
+        }
+        &:last-child {
+          &::before {
+            transform: scaleX(0);
+            transition-delay: 95ms;
+          }
+          &::after {
+            transform: scaleX(1);
+            transition-delay: calc(95ms * 2);
+          }
+        }
+      }
+    }
+  }
+}
+
+.timesLine {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  height: clamp(2px, 100vw, get-vw(2px));
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color-light);
+    border-radius: clamp(20px, 100vw, get-vw(20px));
+  }
+  &:first-child {
+    transform: translate(-50%, -50%) rotate(45deg);
+    &::before {
+      transform-origin: left center;
+    }
+    &::after {
+      transform-origin: right center;
+      transform: scaleX(0);
+    }
+  }
+  &:last-child {
+    transform: translate(-50%, -50%) rotate(-45deg);
+    &::before {
+      transform-origin: left center;
+    }
+    &::after {
+      transform-origin: right center;
+      transform: scale(0);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .callback {
+    padding: 0 30px;
+  }
+  .form {
+    max-width: 100%;
+    padding-bottom: 2px;
+    overflow: hidden;
+  }
+  .controls {
+    margin-top: 35px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .file {
+    order: -1;
+    margin-bottom: 35px;
+  }
+}

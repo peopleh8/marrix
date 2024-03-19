@@ -1,0 +1,93 @@
+@import "../../../styles/helpers/functions.scss";
+
+.partners {
+  padding: clamp(90px, 100vw, get-vw(165px)) clamp(30px, 100vw, get-vw(120px)) clamp(68px, 100vw, get-vw(128px));
+}
+
+.topography {
+  margin: clamp(30px, 100vw, get-vw(39px)) 0 clamp(40px, 100vw, get-vw(83px));
+  display: flex;
+  justify-content: center;
+}
+
+.topographyInner {
+  position: relative;
+  z-index: 2;
+  padding-bottom: clamp(24px, 100vw, get-vw(50px));
+}
+
+.title {
+  font-weight: 900;
+  line-height: clamp(32px, 100vw, get-vw(52px));
+  font-size: clamp(28px, 100vw, get-vw(46px));
+  letter-spacing: clamp(1px, 100vw, get-vw(1px));
+}
+
+.subtitle {
+  overflow: hidden;
+  position: absolute;
+  right: calc(clamp(1px, 100vw, get-vw(100px)) * -1);
+  bottom: 0;
+  z-index: -1;
+  font-weight: 1000;
+  text-transform: uppercase;
+  font-size: clamp(50px, 100vw, get-vw(100px));
+  line-height: 1;
+  background: linear-gradient(360deg, rgba(0, 224, 255, 0.2) 4.55%, rgba(0, 102, 255, 0.2) 74.43%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: clamp(661px, 100vw, get-vw(1200px));
+  width: 100%;
+  margin: 0 auto;
+  border-left: clamp(1px, 100vw, get-vw(1px)) solid #EEE;
+  border-bottom: clamp(1px, 100vw, get-vw(1px)) solid #EEE;
+}
+
+.item {
+  width: clamp(110px, 100vw, get-vw(201px));
+  height: clamp(110px, 100vw, get-vw(201px));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: clamp(1px, 100vw, get-vw(1px)) solid #EEE;
+  border-right: clamp(1px, 100vw, get-vw(1px)) solid #EEE;
+  padding: clamp(10px, 100vw, get-vw(10px));
+  overflow: hidden;
+  margin: calc(clamp(1px, 100vw, get-vw(1px)) * -1);
+  position: relative;
+  @media (hover: hover) {
+    &:hover img {
+      filter: grayscale(0);
+    }
+  }
+  img {
+    height: initial;
+    width: auto;
+    filter: grayscale(1);
+    position: absolute;
+    left: 50%;
+    top: 130%;
+    transform: translate(-50%, -50%);
+    @media (hover: hover) {
+      transition: filter .25s ease;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .subtitle {
+    right: auto;
+    left: 0;
+  }
+}
+
+@media (max-width: 991px) {
+  .list {
+    max-width: 325px;
+  }
+}

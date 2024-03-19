@@ -1,0 +1,20 @@
+.hero-slider {
+  height: 100vh;
+  background: var(--bg-color-dark);
+  .swiper-slide {
+    width: 100vw;
+    height: 100vh;
+    canvas {
+      position: absolute; 
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+    }
+  }
+  .header,
+  .action,
+  .labels {
+    filter: invert(0) !important;
+  }
+}

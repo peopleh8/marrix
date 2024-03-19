@@ -1,0 +1,14 @@
+@import "../../styles/helpers/functions.scss";
+
+.devider {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  z-index: 10;
+  transform: translateX(-50%);
+  width: clamp(194px, 100vw, get-vw(400px));
+  height: 100%;
+  background: transparent;
+  box-shadow: 0 0 clamp(50px, 100vw, get-vw(50px)) 0 var(--text-color-dark);
+  pointer-events: none;
+}

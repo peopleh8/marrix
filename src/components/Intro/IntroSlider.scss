@@ -1,0 +1,13 @@
+.portfolio-slider {
+  .swiper-wrapper {
+    transition: transform .5s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+  }
+  .swiper-slide {
+    height: auto !important;
+    overflow: hidden;
+    clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+    img {
+      transform: scale(1.5);
+    }
+  }
+}

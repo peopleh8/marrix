@@ -1,0 +1,96 @@
+@import "../../../styles/helpers/functions.scss";
+
+.hero {
+  background: var(--bg-color-dark);
+  padding: clamp(105px, 100vw, get-vw(236px)) clamp(30px, 100vw, get-vw(120px)) clamp(40px, 100vw, get-vw(60px));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  display: none;
+  min-height: calc(100vh + 1px);
+}
+
+.title {
+  align-self: flex-start;
+  max-width: clamp(299px, 100vw, get-vw(897px));
+  position: relative;
+  overflow: hidden;
+}
+
+.titleText {
+  color: var(--text-color-light);
+  margin-bottom: 61px;
+  font-size: clamp(30px, 100vw, get-vw(80px));
+  line-height: clamp(42px, 100vw, get-vw(104px));
+  letter-spacing: clamp(4px, 100vw, get-vw(4px));
+  width: 100%;
+  font-weight: 900;
+}
+
+.link {
+  color: var(--text-color-light);
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: clamp(20px, 100vw, get-vw(20px));
+  line-height: clamp(24px, 100vw, get-vw(24px));
+  letter-spacing: clamp(1px, 100vw, get-vw(1px));
+  margin-top: clamp(41px, 100vw, get-vw(61px));
+}
+
+.benefits {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: clamp(50px, 100vw, get-vw(120px));
+  width: 100%;
+  position: relative;
+}
+
+.line {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(#fff, .2);
+  &:nth-child(1) {
+    transform-origin: left center;
+    width: 100%;
+    height: clamp(1px, 100vw, get-vw(1px));
+  }
+  &:nth-child(2) {
+    transform-origin: center top;
+    height: 100%;
+    width: clamp(1px, 100vw, get-vw(1px));
+  }
+}
+
+.benefitsItem {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: clamp(5px, 100vw, get-vw(5px)) clamp(26px, 100vw, get-vw(26px)) clamp(22px, 100vw, get-vw(22px)) clamp(25px, 100vw, get-vw(25px));
+}
+
+.benefitsTitle {
+  font-weight: 800;
+  font-size: clamp(46px, 100vw, get-vw(70px));
+  line-height: clamp(52px, 100vw, get-vw(70px));
+  letter-spacing: clamp(1px, 100vw, get-vw(1px));
+  margin-bottom: clamp(15px, 100vw, get-vw(15px));
+  background: linear-gradient(275.69deg, #00E0FF 7.94%, #0075FF 109.54%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.benefitsDesc {
+  color: var(--text-color-light);
+  font-size: clamp(12px, 100vw, get-vw(18px));
+  line-height: clamp(14px, 100vw, get-vw(21px));
+}
+
+@media (max-width: 1024px) {
+  .hero {
+    display: flex;
+  }
+}

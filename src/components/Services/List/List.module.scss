@@ -1,0 +1,111 @@
+@import "../../../styles//helpers/functions";
+
+.list {
+  position: relative;
+  z-index: 2;
+  padding: 0 clamp(30px, 100vw, get-vw(340px));
+  overflow: hidden;
+  background: var(--bg-color-dark);
+  img {
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.inner {
+  box-shadow: 0 0 clamp(50px, 100vw, get-vw(50px)) 0 var(--text-color-dark);
+  padding: clamp(10px, 100vw, get-vw(130px)) clamp(20px, 100vw, get-vw(25px)) clamp(40px, 100vw, get-vw(72px));
+}
+
+.item {
+  display: flex;
+  cursor: pointer;
+  gap: clamp(30px, 100vw, get-vw(84px));
+  border-bottom: clamp(1px, 100vw, get-vw(1px)) solid #302F2F;
+  @media (hover: hover) {
+    &:hover {
+      .itemBtn::before {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.itemInfo {
+  flex: 1;
+  padding: clamp(30px, 100vw, get-vw(40px)) 0;
+}
+
+.itemTitle {
+  font-weight: 900;
+  color: var(--text-color-light);
+  line-height: clamp(32px, 100vw, get-vw(38px));
+  font-size: clamp(26px, 100vw, get-vw(30px));
+  margin-bottom: clamp(10px, 100vw, get-vw(10px));
+}
+
+.itemDesc {
+  color: var(--text-color-light);
+  font-size: clamp(16px, 100vw, get-vw(18px));
+  line-height: clamp(20px, 100vw, get-vw(22px));
+}
+
+.itemBtn {
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: clamp(24px, 100vw, get-vw(30px));
+  line-height: clamp(30px, 100vw, get-vw(38px));
+  letter-spacing: clamp(1px, 100vw, get-vw(1px));
+  color: var(--text-color-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(180deg, #0183FF -3.69%, #01E0FF -3.68%, #0183FF 39.87%, rgba(20, 20, 20, 0) 113.87%);
+    opacity: 0;
+    transition: opacity .35s ease;
+  }
+}
+
+@media (max-width: 768px) {
+  .list {
+    padding: 0 30px;
+  }
+  .inner {
+    padding-left: 0;
+    padding-right: 0;
+    box-shadow: none !important;
+  }
+  .item {
+    flex-direction: column;
+    padding-bottom: 30px;
+  }
+  .itemTitle {
+    margin-bottom: 0;
+  }
+  .itemDesc {
+    margin-top: 15px;
+  }
+  .itemInfo {
+    padding-bottom: 0;
+  }
+  .itemBtn {
+    text-align: left;
+    justify-content: flex-start;
+  }
+}

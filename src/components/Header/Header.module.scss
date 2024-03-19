@@ -1,0 +1,32 @@
+@import "../../styles/helpers/functions.scss";
+
+.header {
+  padding: clamp(29px, 100vw, get-vw(55px)) clamp(30px, 100vw, get-vw(120px)) 0;
+  position: absolute;
+  z-index: 99999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  transition: opacity .25s ease, filter .35s ease;
+}
+
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.inverted {
+  filter: invert(100%);
+}
+
+.open {
+  filter: invert(0);
+}
+
+.inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding-bottom: clamp(2px, 100vw, get-vw(20px));
+}

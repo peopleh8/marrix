@@ -1,0 +1,84 @@
+@import "../../../styles/helpers/functions.scss";
+
+.project {
+  padding: clamp(80px, 100vw, get-vw(165px)) clamp(30px, 100vw, get-vw(120px)) clamp(53px, 100vw, get-vw(67px));
+}
+
+.inner {
+  margin-top: clamp(30px, 100vw, get-vw(50px));
+  padding: 0 clamp(94px, 100vw, get-vw(245px));
+}
+
+.info {
+  margin-top: clamp(30px, 100vw, get-vw(50px));
+  display: flex;
+  gap: clamp(30px, 100vw, get-vw(169px));
+}
+
+.infoItem {
+  overflow: hidden;
+  width: 50%;
+}
+
+.infoTitle {
+  font-weight: 1000;
+  text-transform: uppercase;
+  margin-bottom: clamp(20px, 100vw, get-vw(30px));
+  font-size: clamp(26px, 100vw, get-vw(60px));
+  line-height: clamp(33px, 100vw, get-vw(76px));
+  letter-spacing: clamp(1px, 100vw, get-vw(1px));
+}
+
+.infoInner {
+  display: flex;
+  gap: clamp(30px, 100vw, get-vw(60px));
+  flex-wrap: wrap;
+}
+
+.infoElem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  @media (hover: hover) {
+    &:hover .infoIcon img {
+      filter: grayscale(0);
+    }
+  }
+}
+
+.infoIcon {
+  display: flex;
+  width: clamp(40px, 100vw, get-vw(60px));
+  height: clamp(40px, 100vw, get-vw(60px));
+  justify-content: center;
+  margin-bottom: clamp(12px, 100vw, get-vw(15px));
+  img {
+    width: 100%;
+    height: auto;
+    filter: grayscale(1);
+    @media (hover: hover) {
+      transition: filter .25s ease;
+    }
+  }
+}
+
+.infoName {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: clamp(14px, 100vw, get-vw(22px));
+  line-height: clamp(19px, 100vw, get-vw(32px));
+}
+
+@media (max-width: 768px) {
+  .inner {
+    padding: 0;
+  }
+  .info {
+    flex-wrap: wrap;
+  }
+  .infoItem {
+    width: 100%;
+  }
+}

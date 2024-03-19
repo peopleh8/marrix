@@ -1,0 +1,24 @@
+@import "../../styles/helpers/functions.scss";
+
+.logo {
+  overflow: hidden;
+  height: clamp(20px, 100vw, get-vw(32px));
+  svg {
+    transition: .35s transform;
+    display: block;
+    height: 100%;
+  }
+}
+
+.link {
+  overflow: hidden;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.rolled {
+  svg {
+    transform: translateY(-105%);
+  }
+}

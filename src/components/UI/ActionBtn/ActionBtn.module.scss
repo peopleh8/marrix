@@ -1,0 +1,125 @@
+@import "../../../styles/helpers/functions.scss";
+
+.btn {
+  padding: clamp(15px, 100vw, get-vw(15px)) clamp(20px, 100vw, get-vw(20px));
+  width: fit-content;
+  position: relative;
+  cursor: pointer;
+  @media (hover: hover) {
+    &:hover {
+      .topLeftLine,
+      .botRightLine {
+        transform: scaleX(1.2);
+      }
+      .topRightLine,
+      .botLeftLine {
+        transform: scaleX(.8);
+      }
+      .topDot {
+        transform: translateX(15px) rotate(35deg);
+      }
+      .botDot {
+        transform: translateX(-15px) rotate(35deg);
+      }
+    }
+  }
+}
+
+.text {
+  text-align: center;
+  display: block;
+  width: 100%;
+  letter-spacing: clamp(1px, 100vw, get-vw(1px));
+  text-transform: uppercase;
+  color: var(--text-color-light);
+  font-weight: 600;
+  font-size: clamp(18px, 100vw, get-vw(18px));
+}
+
+.topLeftLine,
+.topRightLine,
+.botLeftLine,
+.botRightLine {
+  height: clamp(2px, 100vw, get-vw(2px));
+  background: var(--text-color-light);
+  width: calc(50% - clamp(24px, 100vw, get-vw(24px)));
+  position: absolute;
+  transition: transform .4s ease;
+}
+
+.leftSide,
+.rightSide {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: clamp(2px, 100vw, get-vw(2px));
+  background: var(--text-color-light);
+}
+
+.topDot,
+.botDot {
+  position: absolute;
+  width: clamp(2px, 100vw, get-vw(2px));
+  height: clamp(10px, 100vw, get-vw(10px));
+  background: var(--text-color-light);
+  border-radius: clamp(20px, 100vw, get-vw(20px));
+  left: 50%;
+  transform: translateX(-50%);
+  transition: transform .4s ease;
+}
+
+.topDot {
+  bottom: 100%;
+}
+
+.botDot {
+  top: 100%;
+}
+
+.leftSide {
+  left: 0;
+}
+
+.rightSide {
+  right: 0;
+}
+
+.topLeftLine,
+.topRightLine {
+  top: 0;
+}
+
+.topLeftLine {
+  left: 0;
+  border-radius: 0 clamp(20px, 100vw, get-vw(20px)) clamp(20px, 100vw, get-vw(20px)) 0;
+  transform-origin: left center;
+}
+
+.topRightLine {
+  right: 0;
+  border-radius: clamp(20px, 100vw, get-vw(20px)) 0 0 clamp(20px, 100vw, get-vw(20px));
+  transform-origin: right center;
+}
+
+.botLeftLine,
+.botRightLine {
+  bottom: 0;
+}
+
+.botLeftLine {
+  left: 0;
+  border-radius: 0 clamp(20px, 100vw, get-vw(20px)) clamp(20px, 100vw, get-vw(20px)) 0;
+  transform-origin: left center;
+}
+
+.botRightLine {
+  right: 0;
+  border-radius: clamp(20px, 100vw, get-vw(20px)) 0 0 clamp(20px, 100vw, get-vw(20px));
+  transform-origin: right center;
+}
+
+@media (max-width: 480px) {
+  .btn {
+    width: 100%;
+  }
+}

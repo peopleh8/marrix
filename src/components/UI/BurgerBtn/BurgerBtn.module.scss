@@ -1,0 +1,85 @@
+@import "../../../styles/helpers/functions.scss";
+
+.btn {
+  cursor: pointer;
+  padding: clamp(25px, 100vw, get-vw(40px)) 0;
+  position: relative;
+  z-index: 2;
+  @media (hover: hover) and (min-width: 1025px) {
+    &:hover {
+      .btnText {
+        transform: translateY(calc(clamp(15px, 100vw, get-vw(15px)) * -1));
+      }
+      .btnLine {
+        &:nth-child(1) {
+          transform: translateY(calc(clamp(15px, 100vw, get-vw(15px)) * -1));
+          transition-delay: 0s;
+        }
+        &:nth-child(2) {
+          transform: translateY(calc(clamp(15px, 100vw, get-vw(15px)) * -1));
+          transition-delay: .2s;
+        }
+        &:nth-child(3) {
+          transform: translateY(calc(clamp(15px, 100vw, get-vw(15px)) * -1));
+          transition-delay: .4s;
+        }
+        &:nth-child(4) {
+          transform: translateY(calc(clamp(15px, 100vw, get-vw(15px)) * -1));
+          transition-delay: .6s;
+        }
+      }
+    }
+  }
+}
+
+.btnText {
+  display: block;
+  text-align: left;
+  color: var(--text-color-light);
+  letter-spacing: clamp(1px, 100vw, get-vw(1px));
+  transition: transform .3375s ease-in-out;
+}
+
+.btnLine {
+  position: absolute;
+  left: 0;
+  bottom: calc(clamp(1px, 100vw, get-vw(1px)) * -1);
+  width: 100%;
+  height: clamp(1px, 100vw, get-vw(1px));
+  background: #fff;
+  transition: transform .45s ease-in-out;
+  &:nth-child(1) {
+    transition-delay: .6s;
+  }
+  &:nth-child(2) {
+    transition-delay: .4s;
+  }
+  &:nth-child(3) {
+    transition-delay: .2s;
+  }
+  &:nth-child(4) {
+    transition-delay: 0s;
+  }
+}
+
+@media (max-width: 1024px) {
+  .btn {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 768px) {
+  .btn {
+    width: 213px;
+    &::after {
+      content: "";
+      z-index: -1;
+      position: absolute;
+      left: 0;
+      bottom: -1px;
+      width: 100vw;
+      height: 1px;
+      background: #303030;
+    }
+  }
+}

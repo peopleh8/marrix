@@ -1,0 +1,1 @@
+export const removeNonNumeric = (str: string): number => parseInt(str.replace(/\D/g, ''))

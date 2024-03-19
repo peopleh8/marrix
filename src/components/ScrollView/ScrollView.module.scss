@@ -1,0 +1,9 @@
+.scrolling {
+  position: relative;
+  // transform: translateY(0);
+}
+
+.inner {
+  overflow: auto;
+  height: 100vh;
+}

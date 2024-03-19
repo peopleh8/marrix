@@ -1,0 +1,115 @@
+@import "../../../styles//helpers/functions";
+
+.article {
+  position: relative;
+  z-index: 2;
+  *:nth-last-child(1) {
+    margin-bottom: 0;
+  }
+  p {
+    margin-bottom: clamp(20px, 100vw, get-vw(30px));
+    & + ol,
+    & + ul {
+      margin-top: calc(clamp(20px, 100vw, get-vw(30px)) * -1);
+    }
+    a {
+      position: relative;
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: clamp(1px, 100vw, get-vw(1px));
+        background: var(--bg-color-dark);
+      }
+      &::before {
+        transform-origin: right center;
+      }
+      &::after {
+        transform-origin: left center;
+        transform: scaleX(0);
+      }
+      @media (hover: hover) {
+        &:hover {
+          &::before,
+          &::after {
+            transition: .3s ease;
+          }
+          &::before {
+            transform: scaleX(0);
+          }
+          &::after {
+            transform: scaleX(1);
+            transition-delay: .2s;
+          }
+        }
+      }
+    }
+  }
+  img {
+    width: 100%;
+    height: auto;
+  }
+  figure {
+    margin-bottom: clamp(20px, 100vw, get-vw(35px));
+  }
+  figcaption {
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: #A7A7A7;
+    font-size: clamp(14px, 100vw, get-vw(18px));
+    line-height: clamp(24px, 100vw, get-vw(24px));
+    margin-top: clamp(8px, 100vw, get-vw(25px));
+  }
+  ol,
+  ul {
+    margin-bottom: clamp(20px, 100vw, get-vw(25px));
+    list-style-position: inside;
+  }
+  ol {
+    list-style-type: decimal;
+    li {
+      list-style-type: decimal;
+    }
+  }
+  ul {
+    list-style-type: disc;
+    li {
+      list-style-type: disc;
+    }
+  }
+  h2, h3, h4, h5, h6 {
+    color: var(--article-title-color);
+    margin-bottom: clamp(15px, 100vw, get-vw(15px));
+    font-weight: 700;
+  }
+  h3 {
+    font-size: clamp(22px, 100vw, get-vw(32px));
+    line-height: clamp(28px, 100vw, get-vw(42px));
+  }
+  h3 {
+    font-size: clamp(21px, 100vw, get-vw(30px));
+    line-height: clamp(27px, 100vw, get-vw(40px));
+  }
+  h4 {
+    font-size: clamp(20px, 100vw, get-vw(28px));
+    line-height: clamp(26px, 100vw, get-vw(38px));
+  }
+  h5 {
+    font-size: clamp(19px, 100vw, get-vw(26px));
+    line-height: clamp(25px, 100vw, get-vw(36px));
+  }
+  h6 {
+    font-size: clamp(18px, 100vw, get-vw(24px));
+    line-height: clamp(24px, 100vw, get-vw(34px));
+  }
+}
+
+.light {
+  * {
+    color: var(--bg-color-light);
+  }
+}
