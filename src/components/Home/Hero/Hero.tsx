@@ -20,7 +20,9 @@ import 'swiper/css/mousewheel'
 import '@/components/Home/Hero/HeroSlider.scss'
 
 const Hero: FC = () => {
-  const { isOpen } = useTypedSelector(state => state.menu)
+  const { isOpen: isMenuOpen } = useTypedSelector(state => state.menu)
+  const { isOpen: isCallbackOpen } = useTypedSelector(state => state.callback)
+
   const [ isLineMoved, setMoveLine ] = useState<boolean>(false)
   const [ isGlitched, setGlitched ] = useState<boolean>(false)
   const [ isEnd, setEnd ] = useState<boolean>(false)
@@ -101,7 +103,7 @@ const Hero: FC = () => {
     }
     
     const wheelHandle = (e: any) => {
-      if (isEnd && e.deltaY > 0 && !isOpen) {
+      if (isEnd && e.deltaY > 0 && !isMenuOpen && !isCallbackOpen) {
         scrollToScrollingHandle()
       }
     }
@@ -113,16 +115,16 @@ const Hero: FC = () => {
       window.removeEventListener('wheel', wheelHandle)
       window.removeEventListener('touchstart', wheelHandle)
     }
-  }, [isEnd, isOpen])
+  }, [isEnd, isMenuOpen, isCallbackOpen])
 
   useEffect(() => {
     if (!slider.current) {
       return
     }
 
-    slider.current.swiper.allowSlideNext = !isOpen
-    slider.current.swiper.allowSlidePrev = !isOpen
-  }, [isOpen])
+    slider.current.swiper.allowSlideNext = !isMenuOpen && !isCallbackOpen 
+    slider.current.swiper.allowSlidePrev = !isMenuOpen && !isCallbackOpen
+  }, [isMenuOpen, isCallbackOpen])
 
   useEffect(() => {
     gsap.to(`.${styles.btn}`, .8, { bottom: '10%', delay: 6.8, onComplete: () => {
@@ -210,7 +212,6 @@ const Hero: FC = () => {
             disabledFooter
             disabledLoaderOverlay
             disabledLoaderLine
-            disabledCallback
           >
             <h1 className={`${styles.title} ${uniSans.className}`}>
               <div className={styles.titleText} dangerouslySetInnerHTML={{ __html: wrapLines('Award-Winning\nDesign & Software\nDevelopment\nCompany') }} />
@@ -238,7 +239,6 @@ const Hero: FC = () => {
             disabledFooter
             disabledLoaderOverlay
             disabledLoaderLine
-            disabledCallback
           >
             <Intro
               title='Innovate'
