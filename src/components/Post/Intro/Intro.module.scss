@@ -51,6 +51,18 @@
 .tocLink {
   font-size: clamp(18px, 100vw, get-vw(18px));
   line-height: clamp(21px, 100vw, get-vw(21px));
+  @media (hover: hover) {
+    transition: opacity .25s ease;
+    &:hover {
+      opacity: .6;
+    }
+  }
+  @media (hover: none) {
+    transition: opacity .15s ease;
+    &:active {
+      opacity: .6;
+    }
+  }
 }
 
 .tocLinkActive {

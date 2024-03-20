@@ -51,6 +51,7 @@ const IntroSlider: FC<any> = ({ slider }) => {
               <Image 
                 src={item.path}
                 alt={item.title}
+                loading='eager'
                 width={930}
                 height={420}
               />

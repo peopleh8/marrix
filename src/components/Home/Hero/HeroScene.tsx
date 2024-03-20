@@ -15,6 +15,8 @@ const HeroScene: FC = () => {
   const [ init, setInit ] = useState(false)
   
   useEffect(() => {
+    gsap.fromTo(`.${styles.scene}`, .7, { opacity: 0 }, { opacity: 1, delay: 6.8 })
+    
     initParticlesEngine(async (engine) => {
       await loadAll(engine)
       await loadPolygonMaskPlugin(engine)
@@ -24,9 +26,9 @@ const HeroScene: FC = () => {
     })
   }, [])
 
-  const particlesLoaded = async (container?: Container): Promise<void> => {
-    gsap.fromTo(`.${styles.scene}`, .7, { opacity: 0 }, { opacity: 1, delay: 6.8 })
-  }
+  // const particlesLoaded = async (container?: Container): Promise<void> => {
+  //   gsap.fromTo(`.${styles.scene}`, .7, { opacity: 0 }, { opacity: 1, delay: 6.8 })
+  // }
 
   const options: ISourceOptions = useMemo(() => (
     {
@@ -73,7 +75,7 @@ const HeroScene: FC = () => {
           speed: 0.15,
         },
         number: {
-          value: 300
+          value: 200
         },
         opacity: {
           animation: {
@@ -103,7 +105,7 @@ const HeroScene: FC = () => {
           stroke: {
             color: "#fff",
             width: 0.1,
-            opacity: 1
+            opacity: 0.7
           }
         },
         move: {
@@ -119,19 +121,15 @@ const HeroScene: FC = () => {
     }
   ), [])
   
-  if (init) {
-    return (
-      <div className={styles.scene}>
-        <Particles
-          id="tsparticles"
-          particlesLoaded={particlesLoaded}
-          options={options}
-        />
-      </div>
-    )
-  }
-
-  return <></>
+  return (
+    <div className={styles.scene}>
+      <Particles
+        id="tsparticles"
+        // particlesLoaded={particlesLoaded}
+        options={options}
+      />
+    </div>
+  )
 }
 
 export default React.memo(HeroScene)

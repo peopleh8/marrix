@@ -27,7 +27,7 @@
   cursor: pointer;
   gap: clamp(30px, 100vw, get-vw(84px));
   border-bottom: clamp(1px, 100vw, get-vw(1px)) solid #302F2F;
-  @media (hover: hover) {
+  @media (hover: hover) and (min-width: 1025px) {
     &:hover {
       .itemBtn::before {
         opacity: 1;
@@ -71,9 +71,9 @@
   &::before {
     content: "";
     position: absolute;
-    left: 0;
+    left: calc(clamp(20px, 100vw, get-vw(25px)) * -1);
+    right: calc(clamp(20px, 100vw, get-vw(25px)) * -1);
     bottom: 0;
-    width: 100%;
     height: 100%;
     z-index: -1;
     background: linear-gradient(180deg, #0183FF -3.69%, #01E0FF -3.68%, #0183FF 39.87%, rgba(20, 20, 20, 0) 113.87%);
