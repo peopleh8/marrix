@@ -90,7 +90,6 @@ const Portfolio: FC = () => {
           disabledFooter
           disabledPortfolio
           disabledLoaderOverlay
-          disabledCallback
         >
           <Intro 
             title='Portfolio'
